@@ -1,0 +1,77 @@
+<mat-drawer-container class="example-container">
+  <mat-drawer mode="side" opened>
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+        [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+        [mode]="(isHandset$ | async) ? 'over' : 'side'"
+        [opened]="(isHandset$ | async) === false">
+      <mat-toolbar color="primary" class="position-fixed">
+        <mat-toolbar-row>
+          <span>Krungthai</span>
+          <span class="toolbar-spacer"></span>
+          <!-- Should probably use logout icon -->
+          <mat-icon class="toolbar-icon" aria-hidden="false" aria-label="logout icon">input</mat-icon>
+        </mat-toolbar-row>
+      </mat-toolbar>
+      <mat-nav-list>
+        <div mat-list-item class="navigation-button">
+            <button mat-button routerLink="/">
+              <mat-icon>dashboard</mat-icon>
+              Dashboard
+            </button>
+        </div>
+        <div mat-list-item class="navigation-button">
+            <button mat-button (click)="logout()">
+              <mat-icon>recent_actors</mat-icon>
+              Search Customer
+            </button>
+        </div>
+        <div mat-list-item class="navigation-button">
+            <button mat-button routerLink="/">
+              <mat-icon>account_circle</mat-icon>
+              Register NEXT
+            </button>
+        </div>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <div mat-list-item class="navigation-button">
+                <button mat-button (click)="logout()">
+                    <mat-panel-title>
+                        <mat-icon>settings-applications</mat-icon>Configuration
+                      </mat-panel-title>
+                </button>
+              </div>
+            </mat-expansion-panel-header>
+            <div class="configuration-list">
+              <div mat-list-item class="navigation-button">
+                <mat-icon>event</mat-icon>
+                <button mat-button routerLink="/">Campaign</button>
+              </div>
+            </div>
+            <div mat-list-item class="navigation-button">
+                <div mat-list-item class="navigation-button">
+                    <mat-icon>record_voice_over</mat-icon>
+                    <button mat-button button (click)="logout ()">Announcement</button>
+                </div>
+            </div>
+            <div mat-list-item class="navigation-buttton">
+                <mat-icon>aspect_ratio</mat-icon>
+                <button mat-button routerLink="/">Theme</button>
+            </div>
+            <div mat-list-item class="navigation-button">
+                <mat-icon>sms_failed</mat-icon>
+                <button mat-button (click)="logout()">Greeting Message</button>
+            </div>
+            <div mat-list-item class="navigation-button">
+                <mat-icon>notifications</mat-icon>
+                <button mat-button routerLink="/">Push/Inbox Notification</button>
+            </div>  
+            <div mat-list-item class="navigation-button">
+                <mat-icon>account_balance</mat-icon>
+                <button mat-button (click)="logout()">Bank List</button>
+            </div>
+        </mat-expansion-panel>
+      </mat-nav-list>
+    </mat-sidenav>
+  </mat-drawer>
+  <mat-drawer-content>Main content</mat-drawer-content>
+</mat-drawer-container>
